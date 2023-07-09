@@ -1,0 +1,113 @@
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    /* gap: 10px; */
+    width: 90%;
+    border: 1px solid rgba(248, 145, 145, 0.651);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.575);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/* ..........image side............ */
+.img-holder,.right-side{
+    height: 500px;
+    width: 50%;
+}
+
+ .img-holder img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* display: none; */
+}
+.content.active{
+    display: block;
+}
+.content{
+    display: none;
+}
+/* ...........image side............. */
+
+/* ...........tabs menu............... */
+.right-side{
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+.tab-menu{
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    gap: 2px;
+    margin-bottom: 50px;
+}
+
+.tab-btn{
+    position: relative;
+    border: none;
+    height: 55px;
+    text-align: center;
+    background-color: aquamarine;
+    /* outline: 1px solid rgba(0, 0, 0, 0.774); */
+    cursor: pointer;
+    
+}
+.tab-btn:hover:not(.active){
+    background-color: blue;
+    color: white;
+}
+.tab-btn:hover:not(.active)::after{
+    content:"";
+    position: absolute;
+    right: 0;
+    bottom: 0; 
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 255, 13, 0.856);
+    /* transition: 3s ease; */
+    animation: grow .2s;
+}
+@keyframes grow{
+    from{width: 0;}
+    to{width: 100%;}
+}
+.tab-btn.active{
+    background-color: antiquewhite;
+}
+
+.text{
+    padding: 20px;
+    text-align: center;
+    line-height: 1.3rem;
+    /* display: none; */
+}
+
+
+
+
+
+/* ................media query............... */
+@media screen and (max-width: 799px) {
+    body{
+        height: auto;
+    }
+    .container{
+        flex-direction: column;
+        margin-top: 35px;
+    }
+    .img-holder,.right-side{
+        width: 100%;
+    }
+}

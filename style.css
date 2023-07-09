@@ -106,6 +106,7 @@ body{
     .container{
         flex-direction: column;
         margin-top: 35px;
+        margin-bottom: 35px;
     }
     .img-holder,.right-side{
         width: 100%;
